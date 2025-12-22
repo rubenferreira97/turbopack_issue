@@ -1,12 +1,17 @@
 ## Turbopack Module Resolution Issue Repro
 
-This repository reproduces a Turbopack resolution failure when importing a local package using bun's `file:` protocol.
+This repository reproduces a Turbopack resolution failure when importing a local package using bun's `file:` protocol. This protocol symlinks files but not folders, leading to an error when Turbopack attempts to parse the `package.json` of the symlinked package.
 
 ### Repo Layout
 - `lib/` — local library package (`name: "lib"`, ESM, TypeScript entry `index.ts`).
 - `next/` — Next.js application that depends on `lib` via a `file:` protocol.
 
 ### Environment (from package manifests)
+- Library `lib/package.json`:
+  - `name`: `lib`
+  - `type`: `module`
+  - `module`: `index.ts`
+  - Peer: `typescript ^5`
 - App `next/package.json`:
   - `next`: `^16.1.0`
   - `react`: `^19.2.3`, `react-dom`: `^19.2.3`
@@ -15,11 +20,7 @@ This repository reproduces a Turbopack resolution failure when importing a local
     - `dev`: `next dev`
     - `build`: `next build`
     - `start`: `next start`
-- Library `lib/package.json`:
-  - `name`: `lib`
-  - `type`: `module`
-  - `module`: `index.ts`
-  - Peer: `typescript ^5`
+
 
 Note: The dependency uses the `file:../lib` protocol. This is supported by bun.
 
