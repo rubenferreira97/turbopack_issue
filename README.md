@@ -4,7 +4,7 @@ This repository reproduces a Turbopack resolution failure when importing a local
 
 ### Repo Layout
 - `lib/` — local library package (`name: "lib"`, ESM, TypeScript entry `index.ts`).
-- `next/` — Next.js application that depends on `lib` via a `file:` protocol.
+- `client/` — Next.js application that depends on `lib` via a `file:` protocol.
 
 ### Environment (from package manifests)
 - Library `lib/package.json`:
@@ -12,7 +12,7 @@ This repository reproduces a Turbopack resolution failure when importing a local
   - `type`: `module`
   - `module`: `index.ts`
   - Peer: `typescript ^5`
-- App `next/package.json`:
+- App `client/package.json`:
   - `next`: `^16.1.0`
   - `react`: `^19.2.3`, `react-dom`: `^19.2.3`
   - `lib` dependency: `"file:../lib"`
@@ -29,11 +29,11 @@ Run installs in both packages:
 
 - In `lib/`:
   - `bun i`
-- In `next/`:
+- In `client/`:
   - `bun i`
 
 ### Run
-- From `next/`: `bun run dev`
+- From `client/`: `bun run dev`
 
 ### Error Output
 When running with Turbopack, the app errors:
@@ -46,7 +46,7 @@ Build Error
 Error parsing package.json file
 
 ## Build Output
-./next/node_modules/lib/package.json
+./client/node_modules/lib/package.json
 Error parsing package.json file
 package.json is not parseable: invalid JSON: a redirect can't be parsed as json
 
