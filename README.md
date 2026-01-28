@@ -17,7 +17,7 @@ export namespace Test {
 }
 ```
 
-This is **valid TypeScript** and compiles fine with `tsc`. However, bundlers that use single-file transpilation (SWC, esbuild, Babel) fail because they process each namespace block in isolation without understanding the merged scope.
+This is **valid TypeScript** and compiles fine with `tsc`.
 
 ### Error
 
