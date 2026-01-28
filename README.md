@@ -13,7 +13,7 @@ export namespace Test {
 }
 
 export namespace Test {
-    export const b = a + 1;  // ❌ Fails with bundlers
+    export const b = a + 1;  // ❌ Fails
 }
 ```
 
@@ -57,5 +57,3 @@ bun run dev   # Error: a is not defined
        export const b = Test.a + 1;
    }
    ```
-
-3. **Avoid namespaces** — use ES modules instead (recommended)
