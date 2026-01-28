@@ -1,4 +1,4 @@
-# TypeScript Namespace Merging Issue with Bundlers
+# TypeScript Namespace Merging Issue with Turbopack
 
 This repo demonstrates that **TypeScript namespace merging fails** when using Turbopack bundler.
 
