@@ -25,16 +25,6 @@ This is **valid TypeScript** and compiles fine with `tsc`. However, bundlers tha
 ReferenceError: a is not defined
 ```
 
-## Why This Happens
-
-| Tool | Works? | Reason |
-|------|--------|--------|
-| `tsc` | ✅ | Full program analysis, understands merging |
-| Webpack + `ts-loader` (transpileOnly: false) | ✅ | Uses tsc under the hood |
-| Webpack + SWC/esbuild-loader | ❌ | Single-file transpilation |
-| Turbopack (SWC) | ❌ | Single-file transpilation |
-| Bun | ❌ | Single-file transpilation |
-
 ## Repo Structure
 
 ```
