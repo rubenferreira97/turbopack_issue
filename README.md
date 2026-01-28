@@ -1,6 +1,6 @@
 # TypeScript Namespace Merging Issue with Bundlers
 
-This repo demonstrates that **TypeScript namespace merging fails** when using modern bundlers (Turbopack, Webpack with SWC/esbuild, etc.).
+This repo demonstrates that **TypeScript namespace merging fails** when using Turbopack bundler.
 
 ## The Problem
 
